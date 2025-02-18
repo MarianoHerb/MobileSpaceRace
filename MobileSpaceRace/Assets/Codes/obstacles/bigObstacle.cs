@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bigObstacle : MonoBehaviour
+public class bigObstacle : generalObstacles
 {
     private void OnTriggerEnter2D(Collider2D other)
     {

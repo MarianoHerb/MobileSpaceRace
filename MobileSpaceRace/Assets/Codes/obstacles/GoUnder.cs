@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoUnder : MonoBehaviour
+public class GoUnder : generalObstacles
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Player player;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        Iinteract damage = other.GetComponent<Iinteract>();
+        if (damage != null)
+        {
+            if (player.ground == false)
+            {
+                print("Chocaste");
+            }
+            else
+            {
+                print("No pasa nada");
+            }
+        }
     }
 }

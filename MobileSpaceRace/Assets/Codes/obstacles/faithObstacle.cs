@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoOver : generalObstacles
+public class faithObstacle : generalObstacles
 {
     public Player player;
 
@@ -11,7 +11,7 @@ public class GoOver : generalObstacles
         Iinteract damage = other.GetComponent<Iinteract>();
         if (damage != null)
         {
-            if(player.air == false)
+            if (player.ground == true || player.air == true)
             {
                 print("Chocaste");
             }
@@ -21,5 +21,4 @@ public class GoOver : generalObstacles
             }
         }
     }
-
 }
