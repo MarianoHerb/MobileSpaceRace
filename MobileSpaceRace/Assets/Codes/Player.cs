@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, Iinteract, Idamage
 {
+    //cambiar air y ground y probar a hacerlos estados para ver si asi funciona con los obstaculos que spawnean
+
     public float moveSpeed = 5f; // Velocidad del personaje
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -51,6 +53,7 @@ public class Player : MonoBehaviour, Iinteract, Idamage
     {
         yield return new WaitForSeconds(3f);
         air = false;
+        ground = false;
         print("Aterrice");
     }
 
