@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, Iinteract, Idamage
 {
-    //cambiar air y ground y probar a hacerlos estados para ver si asi funciona con los obstaculos que spawnean
+    //cambiar air y ground y probar a hacerlos estados para ver si asi funciona con los obstaculos que spawnean (no hizo falta)
 
-    public float moveSpeed = 5f; // Velocidad del personaje
+    public float moveSpeed = 5f; 
     private Rigidbody2D rb;
     private Vector2 movement;
     public bool air = false;
@@ -20,23 +20,23 @@ public class Player : MonoBehaviour, Iinteract, Idamage
     void Update()
     {
         // Capturar entrada del jugador (WASD)
-        movement.x = Input.GetAxisRaw("Horizontal"); // A (-1) / D (+1)
-        movement.y = Input.GetAxisRaw("Vertical");   // W (+1) / S (-1)
+        movement.x = Input.GetAxisRaw("Horizontal"); 
+        movement.y = Input.GetAxisRaw("Vertical");   
 
-        // Normalizar el vector para evitar velocidad diagonal mayor
+        
         movement = movement.normalized;
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             air = true;
-            StartCoroutine(NormalHeigh(0.1f));
+            StartCoroutine(NormalHeigh(0.01f));
             print("Volando");
             ground = false;
         }
         if(Input.GetKeyDown(KeyCode.O))
         {
             ground = true;
-            StartCoroutine(NormalHeigh(0.1f));
+            StartCoroutine(NormalHeigh(0.01f));
             print("Al piso");
             air = false;
         }
@@ -45,13 +45,12 @@ public class Player : MonoBehaviour, Iinteract, Idamage
 
     void FixedUpdate()
     {
-        // Aplicar movimiento usando Rigidbody2D
         rb.velocity = movement * moveSpeed;
     }
 
     IEnumerator NormalHeigh(float up)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         air = false;
         ground = false;
         print("Aterrice");

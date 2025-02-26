@@ -43,7 +43,7 @@ public class ObstacleSpawner : MonoBehaviour
                 Instantiate(selected[3], spawnObst.position, spawnObst.rotation);
                 break;
             default:
-                print("Error");
+                
                 break;
 
 

@@ -5,19 +5,25 @@ using UnityEngine;
 public class GoUnder : generalObstacles
 {
     public Player player;
+    public bool abajo = false;
+    private void Start()
+    {
+        player = FindObjectOfType<Player>(); 
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Iinteract damage = other.GetComponent<Iinteract>();
         if (damage != null)
         {
-            if (player.ground == false)
+            if (player.ground == true)
             {
-                print("Chocaste");
+                print("no pasa nada");
             }
             else
             {
-                print("No pasa nada");
+                print("chocaste");
+                abajo = true;
             }
         }
     }
