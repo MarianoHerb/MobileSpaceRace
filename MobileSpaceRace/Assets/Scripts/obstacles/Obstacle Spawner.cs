@@ -14,10 +14,13 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Start()
     {
+
         StartCoroutine(SpawnObstacle());
     }
     IEnumerator SpawnObstacle()
     {
+        yield return new WaitForSeconds(3f);
+
         while (true)
         {
             yield return new WaitForSeconds(2f);
